@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<p>Welcome, {{ username }}!</p>
+
+{% if is_logged_in %}
+    <p>You are logged in.</p>
+{% else %}
+    <p>Please log in.</p>
+{% endif %}
+
+<h2>Student List</h2>
+
+<ul>
+    {% for student in students %}
+        <li>{{ student.name }} - {{ student.course }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('go_home') }}">Redirect to Home</a>
+
+{% endblock %}
